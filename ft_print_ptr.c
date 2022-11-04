@@ -14,15 +14,15 @@
 
 int ft_len(uintptr_t num) //tipo que faz com que eu possa trabalhar com o ponteiro como um inteiro
 {
-    size_t  num;
+    size_t  len;
 
-    num = 0;
+    len = 0;
     while (num != 0)
     {
-        num++;
+        len++;
         num = num / 16; //divido por 16 para achar em hexa
     }
-    return (num);
+    return (len);
 }
 
 void    ft_put_ptr(uintptr_t ptr)
@@ -43,15 +43,15 @@ void    ft_put_ptr(uintptr_t ptr)
 
 int ft_print_ptr(unsigned long long ptr)
 {
-    int lenght;
+    int length;
 
-    lenght += write(1, "0x", 2); //????????
+    length += write(1, "0x", 2); //e um endereco de memoria 
     if (ptr == 0)
-        lenght += write(1, "0", 1);
+        length += write(1, "0", 1);
     else
     {
         ft_put_ptr(ptr);
-        lenght += ft_len_ptr(ptr);
+        length += ft_len_ptr(ptr);
     } 
-    return (lenght);
+    return (length);
 }

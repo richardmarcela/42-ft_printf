@@ -3,57 +3,67 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marcela <marcela@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mrichard <mrichard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 12:01:40 by marcela           #+#    #+#             */
-/*   Updated: 2022/11/03 23:52:41 by marcela          ###   ########.fr       */
+/*   Updated: 2022/11/04 22:15:16 by mrichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "ft_printf.h"
 
 static int ft_format(va_list args, const char format)
 {
-	int lenght;
+	int length;
 
-	lenght = 0;
+	length = 0;
 	if (format == 'c')
-		lenght += ft_putchar_fd(va_arg(args, int), 1);
+		length += ft_print_chr(va_arg(args, int));
 	else if (format == 's')
-		lenght += ft_putstr_fd(va_arg(args, char *));
+		length += ft_print_str(va_arg(args, char *));
 	else if (format == 'p')
-		lenght += ft_print_ptr(va_arg(args, unsigned long long));
+		length += ft_print_ptr(va_arg(args, unsigned long long));
 	else if (format == 'd' || format == 'i')
-		lenght += ft_putnbr_fd(va_arg(args, int));
+		length += ft_print_num(va_arg(args, int));
 	else if (format == 'u')
-		lenght += ft_print_unsigned();
+		length += ft_print_unsigned();
 	else if (format == 'x' || format == 'X')
-		lenght += ft_print_hex(va_arg(args, unsigned int), format);
+		length += ft_print_hex(va_arg(args, unsigned int), format);
 	else if (format == '%')
-		lenght += ft_putchar_fd('%', 1);
-	return (lenght);
+		length += ft_putchar_fd('%', 1);
+	return 	(length);
 }
 
 int	ft_printf(const char *str, ...)
 {
 	size_t	i;
 	va_list	args;
-	int	lenght;
+	int	length;
 
 	i = 0;
-	lenght = 0;
+	length = 0;
 	va_start(args, str);
-
 	while (str[i])
 	{
-		//if (str[i] == '%')
-
+		if (str[i] == '%')
+		{
+			length += ft_format(args, str[i + 1]);
+			i++;
+		}
+		else 
+			length += ft_putchar_fd(str[i], 1);
+		i++;
 	}
 	va_end(args);
-	return (lenght);
+	return 	(length);
 }
 
-int	main(void)
+int main()
 {
-	printf("marcela %s juninho", "plays");
+    int c;
+
+    printf("\n%d\n", ft_printf("ag %c %s %p %d %i %u sdasd", 'a',"rodrigo" , &c, 14 , 16, 1123456789));
+    printf("\n%d", printf("ag %c %s %p %d %i %u sdasd", 'a',"rodrigo", &c , 14 , 16, 1123456789));
+    return 0;
 }
