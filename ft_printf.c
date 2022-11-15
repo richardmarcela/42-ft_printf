@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrichard <mrichard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marcela <marcela@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 12:01:40 by marcela           #+#    #+#             */
-/*   Updated: 2022/11/04 22:15:16 by mrichard         ###   ########.fr       */
+/*   Updated: 2022/11/14 20:56:25 by marcela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static int ft_format(va_list args, const char format)
 	else if (format == 'x' || format == 'X')
 		length += ft_print_hex(va_arg(args, unsigned int), format);
 	else if (format == '%')
-		length += ft_putchar_fd('%', 1);
+		length += ft_print_chr('%', 1);
 	return 	(length);
 }
 
@@ -52,7 +52,7 @@ int	ft_printf(const char *str, ...)
 			i++;
 		}
 		else 
-			length += ft_putchar_fd(str[i], 1);
+			length += ft_print_chr(str[i], 1);
 		i++;
 	}
 	va_end(args);
