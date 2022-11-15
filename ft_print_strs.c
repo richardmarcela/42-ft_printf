@@ -3,22 +3,60 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_strs.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrichard <mrichard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marcela <marcela@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 22:13:46 by mrichard          #+#    #+#             */
-/*   Updated: 2022/11/04 22:14:13 by mrichard         ###   ########.fr       */
+/*   Updated: 2022/11/15 22:18:41 by marcela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "libft.h"
 
-int ft_print_str(char *s)
+int     ft_print_chr(int c)
 {
-    return (write(1, s, ft_strlen(s)));
+	write(1, &c, 1);
+	return (1);
 }
 
-int ft_print_chr(char c)
+void    ft_putstr(char *str)
 {
-    return (write(1, &c, 1));
+	int i;
+
+	i = 0;
+	while (str[i])
+	{
+		write(1, &str[i], 1);
+		i++;
+	}
+}
+
+int ft_print_str(char *str)
+{
+	int i;
+
+	i = 0;
+	if (str == NULL)
+	{
+		ft_putstr("(null)");
+		return (6);
+	}
+	while (str[i])
+	{
+		write(1, &str[i], 1);
+		i++;
+	}
+	return (i);
+}
+
+int     ft_print_num(int n)
+{
+	int     len;
+	char    *num;
+
+	len = 0;
+	num = ft_itoa(n);
+	len = ft_print_str(num);
+	free(num);
+	return (len);
 }

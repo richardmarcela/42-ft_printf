@@ -6,11 +6,24 @@
 /*   By: marcela <marcela@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 22:07:44 by marcela           #+#    #+#             */
-/*   Updated: 2022/11/14 21:17:49 by marcela          ###   ########.fr       */
+/*   Updated: 2022/11/15 21:44:47 by marcela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+int		ft_hex_len(unsigned int num)
+{
+	int	len;
+
+	len = 0;
+	while (num != 0)
+	{
+		len++;
+		num = num / 10;
+	}
+	return (len);
+}
 
 void	ft_put_hex(unsigned int num, const char format)
 {
@@ -39,5 +52,5 @@ int ft_print_hex(unsigned int num, const char format)
 		return (write(1, "0", 1));
 	else
 		ft_put_hex(num, format);
-	return (ft_len(num));
+	return (ft_hex_len(num));
 }

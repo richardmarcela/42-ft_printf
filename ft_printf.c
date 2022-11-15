@@ -6,14 +6,14 @@
 /*   By: marcela <marcela@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 12:01:40 by marcela           #+#    #+#             */
-/*   Updated: 2022/11/14 20:56:25 by marcela          ###   ########.fr       */
+/*   Updated: 2022/11/15 22:07:33 by marcela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "ft_printf.h"
 
-static int ft_format(va_list args, const char format)
+int ft_format(va_list args, const char format)
 {
 	int length;
 
@@ -27,11 +27,11 @@ static int ft_format(va_list args, const char format)
 	else if (format == 'd' || format == 'i')
 		length += ft_print_num(va_arg(args, int));
 	else if (format == 'u')
-		length += ft_print_unsigned();
+		length += ft_print_unsigned(va_arg(args, unsigned int));
 	else if (format == 'x' || format == 'X')
 		length += ft_print_hex(va_arg(args, unsigned int), format);
 	else if (format == '%')
-		length += ft_print_chr('%', 1);
+		length += ft_print_chr('%');
 	return 	(length);
 }
 
@@ -52,18 +52,18 @@ int	ft_printf(const char *str, ...)
 			i++;
 		}
 		else 
-			length += ft_print_chr(str[i], 1);
+			length += ft_print_chr(str[i]);
 		i++;
 	}
 	va_end(args);
 	return 	(length);
 }
 
-int main()
+/* int main()
 {
     int c;
 
     printf("\n%d\n", ft_printf("ag %c %s %p %d %i %u sdasd", 'a',"rodrigo" , &c, 14 , 16, 1123456789));
     printf("\n%d", printf("ag %c %s %p %d %i %u sdasd", 'a',"rodrigo", &c , 14 , 16, 1123456789));
     return 0;
-}
+} */
