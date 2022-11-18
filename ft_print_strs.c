@@ -3,25 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_strs.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marcela <marcela@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mrichard <mrichard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 22:13:46 by mrichard          #+#    #+#             */
-/*   Updated: 2022/11/15 22:18:41 by marcela          ###   ########.fr       */
+/*   Updated: 2022/11/18 16:13:09 by mrichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "libft.h"
 
-int     ft_print_chr(int c)
+int	ft_print_chr(int c)
 {
 	write(1, &c, 1);
 	return (1);
 }
 
-void    ft_putstr(char *str)
+void	ft_putstr(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i])
@@ -31,9 +30,9 @@ void    ft_putstr(char *str)
 	}
 }
 
-int ft_print_str(char *str)
+int	ft_print_str(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (str == NULL)
@@ -49,10 +48,10 @@ int ft_print_str(char *str)
 	return (i);
 }
 
-int     ft_print_num(int n)
+int	ft_print_num(int n)
 {
-	int     len;
-	char    *num;
+	int		len;
+	char	*num;
 
 	len = 0;
 	num = ft_itoa(n);

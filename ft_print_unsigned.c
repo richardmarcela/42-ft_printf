@@ -3,19 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_unsigned.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marcela <marcela@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mrichard <mrichard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 22:09:41 by marcela           #+#    #+#             */
-/*   Updated: 2022/11/15 22:14:04 by marcela          ###   ########.fr       */
+/*   Updated: 2022/11/18 16:12:28 by mrichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "libft.h"
 
-int ft_num_len(unsigned int num)
+int	ft_num_len(unsigned int num)
 {
-	int len;
+	int	len;
 
 	len = 0;
 	while (num != 0)
@@ -26,10 +25,10 @@ int ft_num_len(unsigned int num)
 	return (len);
 }
 
-char    *ft_uitoa(unsigned int n)
+char	*ft_uitoa(unsigned int n)
 {
-	char    *num;
-	int     len;
+	char	*num;
+	int		len;
 
 	len = ft_num_len(n);
 	num = (char *)malloc((len + 1) * sizeof(char));
@@ -45,10 +44,10 @@ char    *ft_uitoa(unsigned int n)
 	return (num);
 }
 
-int     ft_print_unsigned(unsigned int n)
+int	ft_print_unsigned(unsigned int n)
 {
-	int     length;
-	char    *num;
+	int		length;
+	char	*num;
 
 	length = 0;
 	if (n == 0)

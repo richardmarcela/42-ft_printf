@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_hex.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marcela <marcela@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mrichard <mrichard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 22:07:44 by marcela           #+#    #+#             */
-/*   Updated: 2022/11/15 21:44:47 by marcela          ###   ########.fr       */
+/*   Updated: 2022/11/18 16:14:29 by mrichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-int		ft_hex_len(unsigned int num)
+int	ft_hex_len(unsigned int num)
 {
 	int	len;
 
@@ -20,33 +20,33 @@ int		ft_hex_len(unsigned int num)
 	while (num != 0)
 	{
 		len++;
-		num = num / 10;
+		num = num / 16;
 	}
 	return (len);
 }
 
 void	ft_put_hex(unsigned int num, const char format)
 {
-	if (num >= 16) //base hex acaba no 16
+	if (num >= 16)
 	{
-		ft_put_hex(num / 16, format); //trato digito por digito
+		ft_put_hex(num / 16, format);
 		ft_put_hex(num % 16, format);
 	}
 	else
 	{
-		if (num <= 9) //menor q 9 continua sendo numero
+		if (num <= 9)
 			ft_putchar_fd((num + 48), 1);
-		else //maior q 9 ate 15 sao letras
+		else
 		{
-			if (format == 'x') //letra minuscula
-				ft_putchar_fd((num - 10 + 'a'), 1); 
-			else if (format == 'X') //letra maiuscula
-				ft_putchar_fd((num - 10 + 'A'), 1); 
+			if (format == 'x')
+				ft_putchar_fd((num - 10 + 'a'), 1);
+			else if (format == 'X')
+				ft_putchar_fd((num - 10 + 'A'), 1);
 		}
 	}
 }
 
-int ft_print_hex(unsigned int num, const char format)
+int	ft_print_hex(unsigned int num, const char format)
 {
 	if (num == 0)
 		return (write(1, "0", 1));
