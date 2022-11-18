@@ -14,6 +14,6 @@ But how can I <b>run</b> this project?
 ```
 ### Tip! You can use scripts such as:
 
-    <a href="https://github.com/Tripouille/printfTester" target="_blank">Tripouille/printfTester</a>
+   <a href="https://github.com/Tripouille/printfTester" target="_blank">Tripouille/printfTester</a>
         
 and that's basically it! :)
