@@ -12,7 +12,7 @@ But how can I <b>run</b> this project?
 ```C
 #include "ft_printf.h" 
 ```
-### Tip! You can use scripts such as:
+### 💡 Tip! You can use scripts such as:
 
    <a href="https://github.com/Tripouille/printfTester" target="_blank">Tripouille/printfTester</a>
         
