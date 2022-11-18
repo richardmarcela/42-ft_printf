@@ -6,7 +6,7 @@ But how can I <b>run</b> this project?
 
 ### 1 - First things first, you need to compile. Go to the library path and run:  
   
-  $ make
+    $ make
 
 ### 2 - To use the library in your code include its header:
 
