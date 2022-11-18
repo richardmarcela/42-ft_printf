@@ -10,7 +10,7 @@ But how can I <b>run</b> this project?
 
 ### 2 - To use the library in your code include its header:
 
-   #include "ft_printf.h" 
+    #include "ft_printf.h" 
     
 ### Tip! You can use scripts such as:
 
