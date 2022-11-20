@@ -1,5 +1,7 @@
 # Ft_printf
 
+![imagem](https://user-images.githubusercontent.com/101434516/202919222-26f908d7-3904-484b-86d0-8746399c4f41.png)
+
 This is a 42 project that consists of a simplified version of the printf function.
 
 But how can I <b>run</b> this project? 
